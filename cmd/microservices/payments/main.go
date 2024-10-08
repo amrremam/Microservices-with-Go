@@ -1,9 +1,14 @@
-package payments
+package main
 
 import (
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/akhilsharma90/monolith-microservice/pkg/common/cmd"
+	payments_app "github.com/akhilsharma90/monolith-microservice/pkg/payments/application"
+	payments_infra_orders "github.com/akhilsharma90/monolith-microservice/pkg/payments/infrastructure/orders"
+	"github.com/akhilsharma90/monolith-microservice/pkg/payments/interfaces/amqp"
 )
 
 func main() {
@@ -17,7 +22,6 @@ func main() {
 		panic(err)
 	}
 }
-
 
 func createPaymentsMicroservice() amqp.PaymentsInterface {
 	cmd.WaitForService(os.Getenv("SHOP_RABBITMQ_ADDR"))

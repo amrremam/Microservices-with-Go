@@ -1,9 +1,17 @@
-package shop
+package main
 
 import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/akhilsharma90/monolith-microservice/pkg/common/cmd"
+	"github.com/akhilsharma90/monolith-microservice/pkg/shop"
+	shop_app "github.com/akhilsharma90/monolith-microservice/pkg/shop/application"
+	shop_infra_product "github.com/akhilsharma90/monolith-microservice/pkg/shop/infrastructure/products"
+	shop_interfaces_private_http "github.com/akhilsharma90/monolith-microservice/pkg/shop/interfaces/private/http"
+	shop_interfaces_public_http "github.com/akhilsharma90/monolith-microservice/pkg/shop/interfaces/public/http"
+	"github.com/go-chi/chi"
 )
 
 func main() {
